@@ -29,4 +29,3 @@ test('店舗情報ページへ移動後、ホームへ戻る', async ({ page }) 
   await expect(page).toHaveURL('http://localhost:3000/');
 
 });
-a
