@@ -15,42 +15,44 @@ const categoryColors: Record<string, string> = {
 
 export default function NewsPage() {
   return (
-    <div className="py-8 md:py-16 px-4">
+    <div className="py-12 md:py-16 px-4">
       <div className="mx-auto max-w-4xl">
         {/* ページヘッダー */}
-        <div className="text-center mb-12">
+        <header className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">お知らせ</h1>
           <p className="text-muted-foreground mt-2">最新情報をお届けします</p>
-        </div>
+        </header>
 
         {/* お知らせ一覧 */}
-        <div className="space-y-6">
-          {newsList.map((news) => (
-            <article
-              key={news.id}
-              className="bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 transition-colors"
-            >
-              <div className="flex flex-wrap items-center gap-3 mb-3">
-                <time className="text-sm text-muted-foreground">{news.date}</time>
-                <span className={`text-xs px-3 py-1 rounded-full font-medium ${categoryColors[news.category] || categoryColors['お知らせ']}`}>
-                  {news.category}
-                </span>
-              </div>
-              <h2 className="font-bold text-xl text-foreground mb-3">{news.title}</h2>
-              <p className="text-muted-foreground leading-relaxed">{news.content}</p>
-            </article>
-          ))}
-        </div>
+        <section aria-label="お知らせ一覧">
+          <div className="space-y-6">
+            {newsList.map((news) => (
+              <article
+                key={news.id}
+                className="bg-card rounded-lg p-6 md:p-8 border border-border hover:border-primary/30 transition-colors"
+              >
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <time dateTime={news.date} className="text-sm text-muted-foreground">{news.date}</time>
+                  <span className={`text-xs px-3 py-1 rounded-full font-medium ${categoryColors[news.category] || categoryColors['お知らせ']}`}>
+                    {news.category}
+                  </span>
+                </div>
+                <h2 className="font-bold text-xl text-foreground mb-3">{news.title}</h2>
+                <p className="text-muted-foreground leading-relaxed">{news.content}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         {/* トップへ戻る */}
-        <div className="text-center mt-12">
+        <nav className="text-center mt-12" aria-label="ページナビゲーション">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
           >
-            ← トップページに戻る
+            トップページに戻る
           </Link>
-        </div>
+        </nav>
       </div>
     </div>
   )

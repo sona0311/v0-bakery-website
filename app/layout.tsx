@@ -4,6 +4,8 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { AuthProvider } from '@/context/auth-context'
+import { CartProvider } from '@/context/cart-context'
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -48,9 +50,13 @@ export default function RootLayout({
   return (
     <html lang="ja" className="bg-background">
       <body className={`${notoSansJP.variable} ${zenMaruGothic.variable} font-sans antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

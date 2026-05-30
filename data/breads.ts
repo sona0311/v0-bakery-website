@@ -16,6 +16,7 @@ export type Bread = {
   allergens: string[]
   recommendation: string
   isRecommended: boolean
+  stock: number
 }
 
 export const breads: Bread[] = [
@@ -29,6 +30,7 @@ export const breads: Bread[] = [
     allergens: ['小麦', '乳'],
     recommendation: '朝食やティータイムにぴったり。温め直すとさらにサクサク感がアップします。',
     isRecommended: true,
+    stock: 15,
   },
   {
     id: 'anpan',
@@ -40,6 +42,7 @@ export const breads: Bread[] = [
     allergens: ['小麦', '卵', '乳'],
     recommendation: 'お子様からご年配の方まで愛される定番の味。温かいお茶と一緒にどうぞ。',
     isRecommended: true,
+    stock: 20,
   },
   {
     id: 'melonpan',
@@ -51,6 +54,7 @@ export const breads: Bread[] = [
     allergens: ['小麦', '卵', '乳'],
     recommendation: 'おやつや軽食にぴったり。焼きたてはもちろん、翌日でも美味しくお召し上がりいただけます。',
     isRecommended: true,
+    stock: 12,
   },
   {
     id: 'shokupan',
@@ -62,6 +66,7 @@ export const breads: Bread[] = [
     allergens: ['小麦', '乳'],
     recommendation: '厚切りでトーストがおすすめ。バターやジャムとの相性も抜群です。',
     isRecommended: false,
+    stock: 8,
   },
   {
     id: 'currypan',
@@ -73,6 +78,7 @@ export const breads: Bread[] = [
     allergens: ['小麦', '卵', '乳', '牛肉'],
     recommendation: 'ランチや小腹が空いた時に。揚げたてが一番美味しいですが、トースターで温め直しても◎',
     isRecommended: true,
+    stock: 0,
   },
   {
     id: 'baguette',
@@ -84,6 +90,7 @@ export const breads: Bread[] = [
     allergens: ['小麦'],
     recommendation: 'オリーブオイルやバターをつけて。サンドイッチやブルスケッタにもおすすめです。',
     isRecommended: false,
+    stock: 5,
   },
 ]
 
